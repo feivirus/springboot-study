@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan(basePackages = { "com.feivirus"})
 @EnableTransactionManagement
 @EnableAspectJAutoProxy(proxyTargetClass = true)
-@MapperScan(basePackages = { "com.feivirus.demo.dao"})
+@MapperScan(basePackages = { "com.feivirus.demo.dao", "com.feivirus.redpacket.dao"})
 public class SpringbootStudyApplication {
 
 	public static void main(String[] args) {
