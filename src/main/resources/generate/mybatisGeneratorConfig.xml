@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 自动生成mybatis程序 运行：mvn mybatis-generator:generate -Dproject=incredibles 其中sparrow代表生成到sparrow目录 无需配置自己的环境 -->
+    <!-- 一个数据库一个context -->
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <!-- 生成的pojo，将implements Serializable 这里千万别改 -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+        <!--  加入toString插件  这里千万别改-->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+        <!-- 注释  这里千万别改 -->
+        <commentGenerator>
+            <!-- 是否生成的实体类显示注释 -->
+            <property name="suppressAllComments" value="false"/>
+            <!-- 是否生成注释带时间戳 -->
+            <property name="suppressDate" value="true"/>
+            <!-- 是否生成注释带数据库的备注 -->
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
+        <!-- 数据库链接URL、用户名、密码
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://qa.vm.com:3306/10bei_portal?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;autoReconnectForPools=true&amp;zeroDateTimeBehavior=convertToNull&amp;allowMultiQueries=true&amp;tinyInt1isBit=false"
+                        userId="root" password="123456">
+        </jdbcConnection>-->
+        <!-- 千云的数据库-->
+<!--        <jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+<!--                        connectionURL="jdbc:mysql://qa.vm.com:3306/qy_portal?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;autoReconnectForPools=true&amp;zeroDateTimeBehavior=convertToNull&amp;allowMultiQueries=true"-->
+<!--                        userId="root" password="123456">-->
+<!--        </jdbcConnection>-->
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.1.6:3306/test"
+                        userId="root" password="123456">
+        </jdbcConnection>
+
+        <!-- 类型转换 -->
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer ;true，把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal -->
+        <!-- 如果想生成为byte 等 可以直接把下面的代码注释掉 生成完了记得还原
+        <javaTypeResolver type="com.ideacome.config.IdeacomeJavaTypeResolver">
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>-->
+        <!-- 生成model模型，对应的包路径，以及文件存放路径(targetProject)，targetProject可以指定具体的路径,如./src/main/java，
+                     也可以使用“MAVEN”来自动生成，这样生成的代码会在target/generatord-source目录下  这里千万别改-->
+        <javaModelGenerator targetPackage="com.feivirus.demo.domain"
+                            targetProject="src/main/java"/>
+        <!-- 对应的mapper.xml文件  这里千万别改-->
+        <sqlMapGenerator targetPackage="com.feivirus.demo.dao"
+                         targetProject="src/main/java"/>
+        <!-- 对应的Mapper接口类文件 这里千万别改-->
+        <javaClientGenerator targetPackage="com.feivirus.demo.dao"
+                             targetProject="src/main/java" type="XMLMAPPER"/>
+        <!-- 以下为表结构 随便改 -->
+        <!--<table schema="10bei_portal" tableName="withdraw_apply_audit" domainObjectName="WithdrawApplyAudit">-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+
+        <!--<table schema="10bei_portal" tableName="express_pay_list" domainObjectName="ExpressPayList">-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+<!--        <table schema="10bei_portal" tableName="factoring_policy_data" domainObjectName="FactoringPolicyData">-->
+<!--        <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+<!--        </table>-->
+        <!--<table schema="10bei_portal" tableName="factoring_fund_partner" domainObjectName="FactoringFundPartner">-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <table schema="test" tableName="employee" domainObjectName="Employee">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+<!--        <table schema="10bei_portal" tableName="factoring_policy_apply_relation" domainObjectName="FactoringPolicyApplyRelation">-->
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table schema="10bei_portal" tableName="factoring_loan_credit" domainObjectName="FactoringLoanCredit">-->
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table schema="10bei_portal" tableName="factoring_credit_account" domainObjectName="FactoringCreditAccount">-->
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+<!--        </table>-->
+
+
+
+        <!--        <table schema="10bei_portal" tableName="factoring_loan_apply" domainObjectName="FactoringLoanApply">-->
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table schema="10bei_portal" tableName="factoring_policy_apply_relation" domainObjectName="FactoringPolicyApplyRelation">-->
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+<!--        </table>-->
+        <!--<table schema="10bei_portal" tableName="express_pay_audit_log" domainObjectName="ExpressPayAuditLog">-->
+            <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+    </context>
+</generatorConfiguration>
