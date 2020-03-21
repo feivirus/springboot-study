@@ -1,4 +1,4 @@
-package com.feivirus.redpacket.service;
+package com.feivirus.redpacket.service.impl;
 
 import com.feivirus.redpacket.dao.RpRecordsMapper;
 import com.feivirus.redpacket.domain.RpRecords;

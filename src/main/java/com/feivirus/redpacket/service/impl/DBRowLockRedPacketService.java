@@ -1,13 +1,15 @@
-package com.feivirus.redpacket.service;
+package com.feivirus.redpacket.service.impl;
 
 import com.feivirus.redpacket.dao.GrabRedPakcetsCustomMapper;
 import com.feivirus.redpacket.domain.RedPackets;
 import com.feivirus.redpacket.domain.RpRecords;
 import com.feivirus.redpacket.domain.UserAccount;
 import com.feivirus.redpacket.helper.RedPacketsHelper;
+import com.feivirus.redpacket.service.RedPacketService;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,10 +20,10 @@ import java.util.List;
  * 2.可能死锁
  * 3.大量线程抢锁，都阻塞，有太多线程切换
  */
-@Service
-public class GrabRedPacketService {
+@Service("dBRowLockRedPacketService")
+public class DBRowLockRedPacketService implements RedPacketService {
     @Autowired
-    private RedPacketsService redPacketsService;
+    private RedPacketsTableService redPacketsTableService;
     @Autowired
     private RpRecordsService rpRecordsService;
     @Autowired
@@ -35,6 +37,8 @@ public class GrabRedPacketService {
      * @param uid
      * @return
      */
+    @Transactional
+    @Override
     public String grabRedPacket(Integer rid, Integer uid) {
         String result = "success";
         /**
@@ -82,7 +86,7 @@ public class GrabRedPacketService {
         Double newOverAmount = redPackets.getOverAmount() - grabedMoney;
         redPackets.setOverAmount(newOverAmount);
         redPackets.setOverNumber(newOverNumber);
-        Integer updatedCount = redPacketsService.updateByPrimaryKey(redPackets);
+        Integer updatedCount = redPacketsTableService.updateByPrimaryKey(redPackets);
 
         /**
          * 向抢到红包的用户转钱
@@ -102,5 +106,10 @@ public class GrabRedPacketService {
         rpRecordsService.insertSelective(rpRecords);
 
         return result;
+    }
+
+    @Override
+    public String sendRedPacket(Integer uid, Integer number, Double amount) {
+        return null;
     }
 }
