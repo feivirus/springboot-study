@@ -44,4 +44,8 @@ public class RpRecordsService {
     public int insertSelective(RpRecords rpRecords) {
         return rpRecordsMapper.insertSelective(rpRecords);
     }
+
+    public int insert(RpRecords rpRecords) {
+        return rpRecordsMapper.insert(rpRecords);
+    }
 }

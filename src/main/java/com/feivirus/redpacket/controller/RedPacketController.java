@@ -21,7 +21,7 @@ public class RedPacketController {
 
     @GetMapping("/sendRedPacket")
     @ResponseBody
-    public String sendRedPacket(Integer uid, Double number, Double amount) {
+    public String sendRedPacket(Integer uid, Integer number, Double amount) {
         String result = redisRedPacketService.sendRedPacket(uid, number, amount);
         return result;
     }
@@ -39,7 +39,9 @@ public class RedPacketController {
         if ((!NumberUtils.isDigits(rid)) || (!NumberUtils.isDigits(uid))) {
             return "参数错误";
         }
-        String result = dBRowLockRedPacketService.grabRedPacket(Integer.valueOf(rid), Integer.valueOf(uid));
+        //String result = dBRowLockRedPacketService.grabRedPacket(Integer.valueOf(rid), Integer.valueOf(uid));
+        String result = redisRedPacketService.grabRedPacket(Integer.valueOf(rid),
+                Integer.valueOf(uid));
         return result;
     }
 }

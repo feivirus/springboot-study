@@ -103,7 +103,7 @@ public class DBRowLockRedPacketService implements RedPacketService {
         rpRecords.setAmount(grabedMoney);
         rpRecords.setRid(rid);
         rpRecords.setUid(uid);
-        rpRecordsService.insertSelective(rpRecords);
+        rpRecordsService.insert(rpRecords);
 
         return result;
     }

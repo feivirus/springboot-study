@@ -47,6 +47,17 @@ public class RedisRedPacketService implements RedPacketService {
             redisHelper.lpush(oneRPQueueKey, amount.toString(), Constants.SECONDS_OF_ONE_HOUR);
         }
 
+        /**
+         * 红包余额，剩余数量入redis
+         */
+        String overAmountKey = redisHelper.get(Constants.GRAP_RP_OVER_AMOUNT_PREFIX) + rid;
+        String overNumberKey = redisHelper.get(Constants.GRAP_RP_OVER_NUMBER_PREFIX) + rid;
+        redisHelper.set(overAmountKey, amount.toString());
+        redisHelper.expire(overAmountKey, Constants.SECONDS_OF_ONE_HOUR);
+        redisHelper.set(overNumberKey, number.toString());
+        redisHelper.expire(overNumberKey, Constants.SECONDS_OF_ONE_HOUR);
+
+
         return null;
     }
 }

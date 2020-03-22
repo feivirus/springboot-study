@@ -29,7 +29,12 @@ public class RedPacketsTableService {
         redPackets.setOverAmount(amount);
         redPackets.setAddTime(new Date());
         redPackets.setVersion(0);
+        redPackets.setUid(uid);
         redPacketsMapper.insert(redPackets);
         return redPackets;
+    }
+
+    public RedPackets selectByPrimaryKey(Integer rid) {
+        return redPacketsMapper.selectByPrimaryKey(rid);
     }
 }

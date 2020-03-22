@@ -45,13 +45,13 @@
         </javaTypeResolver>-->
         <!-- 生成model模型，对应的包路径，以及文件存放路径(targetProject)，targetProject可以指定具体的路径,如./src/main/java，
                      也可以使用“MAVEN”来自动生成，这样生成的代码会在target/generatord-source目录下  这里千万别改-->
-        <javaModelGenerator targetPackage="com.feivirus.redpacket.domain"
+        <javaModelGenerator targetPackage="com.feivirus.orderpay.domain"
                             targetProject="src/main/java"/>
         <!-- 对应的mapper.xml文件  这里千万别改-->
-        <sqlMapGenerator targetPackage="com.feivirus.redpacket.dao"
+        <sqlMapGenerator targetPackage="com.feivirus.orderpay.dao"
                          targetProject="src/main/java"/>
         <!-- 对应的Mapper接口类文件 这里千万别改-->
-        <javaClientGenerator targetPackage="com.feivirus.redpacket.dao"
+        <javaClientGenerator targetPackage="com.feivirus.orderpay.dao"
                              targetProject="src/main/java" type="XMLMAPPER"/>
         <!-- 以下为表结构 随便改 -->
         <!--<table schema="10bei_portal" tableName="withdraw_apply_audit" domainObjectName="WithdrawApplyAudit">-->
@@ -73,10 +73,13 @@
         <table schema="test" tableName="t_user_account" domainObjectName="UserAccount">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table schema="test" tableName="t_rp_records" domainObjectName="RpRecords">
+        <table schema="test" tableName="t_order" domainObjectName="Order">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table schema="test" tableName="t_red_packets" domainObjectName="RedPackets">
+        <table schema="test" tableName="t_goods" domainObjectName="Goods">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="test" tableName="t_pay_apply" domainObjectName="PayApply">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 <!--        <table schema="10bei_portal" tableName="factoring_policy_apply_relation" domainObjectName="FactoringPolicyApplyRelation">-->
