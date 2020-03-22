@@ -17,4 +17,19 @@ public class OrderTableService {
     public Order selectByPrimaryKey(Integer orderId) {
         return orderMapper.selectByPrimaryKey(orderId);
     }
+
+    public int updateByPrimaryKey(Order order) {
+        return orderMapper.updateByPrimaryKey(order);
+    }
+
+    /**
+     * 基于状态的数据库乐观锁.
+     * @param orderId
+     * @param newStatus
+     * @param oldStatus
+     * @return
+     */
+    public int updateByPrimaryKeyAndStatus(Integer orderId, Integer newStatus, Integer oldStatus) {
+        return 1;
+    }
 }
