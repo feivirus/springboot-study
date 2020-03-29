@@ -25,8 +25,6 @@ public class OrderPayServiceImpl implements OrderPayService {
     @Autowired
     private GoodsService goodsService;
     @Autowired
-    private UserAccountService userAccountService;
-    @Autowired
     private TransactionTemplate transactionTemplate;
     @Autowired
     private PayApplyService payApplyService;

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
  * @author feivirus
  * 对表t_user_account操作的服务
  */
-@Service
+@Service("rpUserAccountService")
 public class UserAccountService {
     @Autowired
     private UserAccountMapper userAccountMapper;

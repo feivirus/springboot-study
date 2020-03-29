@@ -10,8 +10,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @ComponentScan(basePackages = { "com.feivirus"})
 @EnableTransactionManagement
-@EnableAspectJAutoProxy(proxyTargetClass = true)
-@MapperScan(basePackages = { "com.feivirus.demo.dao", "com.feivirus.redpacket.dao"})
+@EnableAspectJAutoProxy(proxyTargetClass = false)
+@MapperScan(basePackages = { "com.feivirus.demo.dao", "com.feivirus.redpacket.dao",
+		"com.feivirus.orderpay.dao"})
 public class SpringbootStudyApplication {
 
 	public static void main(String[] args) {

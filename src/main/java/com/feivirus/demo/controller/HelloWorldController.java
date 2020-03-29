@@ -1,6 +1,7 @@
 package com.feivirus.demo.controller;
 
 import com.feivirus.demo.service.EmployeeService;
+import com.feivirus.demo.service.HelloWorldService;
 import com.feivirus.redpacket.helper.RedisHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,13 +17,14 @@ public class HelloWorldController {
     private EmployeeService employeeService;
     @Autowired
     private RedisHelper redisHelper;
+    @Autowired
+    private HelloWorldService helloWorldService;
 
     @GetMapping("/helloWorld")
     @ResponseBody
     public String helloWorld() {
-        String result = "helloWorld";
-        System.out.println(result);
-        return result;
+        System.out.println("helloWorld controller...");
+        return  helloWorldService.helloWorld();
     }
 
     @GetMapping("/addEmployee")

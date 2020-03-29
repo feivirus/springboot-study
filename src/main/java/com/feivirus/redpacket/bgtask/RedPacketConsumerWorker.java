@@ -19,7 +19,7 @@ import java.util.Date;
 /**
  * @author feivirus
  */
-@Component
+//@Component
 public class RedPacketConsumerWorker implements Runnable {
     @Autowired
     private RedisHelper redisHelper;
