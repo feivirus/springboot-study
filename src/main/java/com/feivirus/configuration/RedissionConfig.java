@@ -12,9 +12,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RedissionConfig {
     @Bean
-    public Redisson redissionConfig() {
+    public Redisson redisson() {
         Config config = new Config();
-        config.useSingleServer().setAddress("redis://localhost:6379").setDatabase(0);
+        config.useSingleServer().setAddress("redis://qa.vm.com:6379").setDatabase(0);
         return (Redisson) Redisson.create(config);
     }
 }

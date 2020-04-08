@@ -34,7 +34,7 @@ public class RedisConfig {
         JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
 
         jedisConnectionFactory.setPort(6379);
-        jedisConnectionFactory.setHostName("localhost");
+        jedisConnectionFactory.setHostName("qa.vm.com");
         jedisConnectionFactory.setPoolConfig(jedisPoolConfig);
         return  jedisConnectionFactory;
     }

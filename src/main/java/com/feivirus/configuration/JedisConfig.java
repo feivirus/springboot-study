@@ -12,7 +12,7 @@ public class JedisConfig {
 
     @Bean
     public JedisPool jedisPool() {
-        JedisPool jedisPool = new JedisPool("localhost", 6379);
+        JedisPool jedisPool = new JedisPool("qa.vm.com", 6379);
         return jedisPool;
     }
 }
