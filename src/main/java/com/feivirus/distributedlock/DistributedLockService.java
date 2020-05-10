@@ -32,6 +32,7 @@ public class DistributedLockService {
      * 7.redis的主从数据可能不一致，可能刚加完锁，master挂了，slave节点升级为master节点时，没有当前锁信息.
      * 8.可以把一个商品设置多个key，增加并发性，比如每个key对应10个库存，有10个key
      *   参考RedLock算法
+     * 9.如果1000个客户端监听，1000个客户端会同时检测。最好类似zk的顺序节点，只检测id-1节点的状态.
      * @return
      */
     public String deductStockWithRedis() {
@@ -86,6 +87,10 @@ public class DistributedLockService {
             String lockKey = UUID.randomUUID().toString();
             lock = redisson.getLock(lockKey);
             lock.lock(60, TimeUnit.SECONDS);
+//            boolean isLocked = lock.tryLock(10, 60, TimeUnit.SECONDS);
+//            if (isLocked == false) {
+//                return "";
+//            }
 
             stock = Integer.valueOf(stringRedisTemplate.opsForValue().get("stock"));
             if (stock != null &&

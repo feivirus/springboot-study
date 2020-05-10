@@ -1,4 +1,4 @@
-package com.feivirus.configuration;
+package com.feivirus.configuration.cache;
 
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;

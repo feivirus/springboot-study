@@ -1,4 +1,4 @@
-package com.feivirus.configuration;
+package com.feivirus.configuration.cache;
 
 import org.redisson.Redisson;
 import org.redisson.client.RedisClient;

@@ -10,6 +10,8 @@ import java.util.List;
 
 /**
  * @author feivirus
+ * @see com.feivirus.common.cache.Cache
+ * 最好和Cache接口的实现类统一
  */
 @Component
 public class RedisHelper {

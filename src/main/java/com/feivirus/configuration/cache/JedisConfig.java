@@ -1,4 +1,4 @@
-package com.feivirus.configuration;
+package com.feivirus.configuration.cache;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
