@@ -1,5 +1,6 @@
 package com.feivirus.demo.controller;
 
+import com.feivirus.common.cache.impl.StockReader;
 import com.feivirus.demo.service.EmployeeService;
 import com.feivirus.demo.service.HelloWorldService;
 import com.feivirus.redpacket.helper.RedisHelper;
@@ -19,6 +20,9 @@ public class HelloWorldController {
     private RedisHelper redisHelper;
     @Autowired
     private HelloWorldService helloWorldService;
+    @Autowired
+    private StockReader stockReader;
+
 
     @GetMapping("/helloWorld")
     @ResponseBody
@@ -48,5 +52,11 @@ public class HelloWorldController {
     public String getValue(String key) {
         String result = redisHelper.get(key);
         return result;
+    }
+
+    @GetMapping("/getStockReader")
+    @ResponseBody
+    public String getStockReader() {
+        return stockReader.getStock().toString();
     }
 }

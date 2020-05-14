@@ -17,7 +17,7 @@ public class StockReader extends Reader {
         super(cacheReader, cacheKeyGenerator);
     }
 
-    Integer getStock() {
+    public Integer getStock() {
         Object o = cacheReader.get(cacheKeyGenerator.stockKey());
         if (o != null) {
             return JSONObject.parseObject((String)o, Integer.class);

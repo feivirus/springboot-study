@@ -10,6 +10,10 @@ public class MemcachedImpl implements Cache {
 
     private MemcachedClient memcachedClient = null;
 
+    public MemcachedImpl(MemcachedClient memcachedClient) {
+        this.memcachedClient = memcachedClient;
+    }
+
     @Override
     public boolean set(String key, Object value, int expiry) {
         return false;
