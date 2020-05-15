@@ -4,6 +4,7 @@ import com.feivirus.common.cache.impl.StockReader;
 import com.feivirus.demo.service.EmployeeService;
 import com.feivirus.demo.service.HelloWorldService;
 import com.feivirus.redpacket.helper.RedisHelper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author feivirus
  */
 @Controller
+@Slf4j
 public class HelloWorldController {
     @Autowired
     private EmployeeService employeeService;
@@ -28,6 +30,7 @@ public class HelloWorldController {
     @ResponseBody
     public String helloWorld() {
         System.out.println("helloWorld controller...");
+        LOGGER.info("slf4j helloWorld");
         return  helloWorldService.helloWorld();
     }
 

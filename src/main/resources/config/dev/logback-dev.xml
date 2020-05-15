@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="LOG_PATTERN"
+              value="%d{yyyy/MM/dd-HH:mm:ss.SSS} %level [%thread] [%X{formNo}] %class:%line>>>>>%msg%n"/>
+
+    <include resource="com/feivirus/common/logging/console/logback.xml"/>
+</configuration>

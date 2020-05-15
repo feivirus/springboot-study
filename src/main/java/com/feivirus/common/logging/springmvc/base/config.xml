@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+    <include resource="com/feivirus/common/logging/base/config.xml" />
+    <if condition='isDefined("catalina.base")'>
+        <then>
+            <property name="LOG_PATH" value="${catalina.base}/logs/" />
+        </then>
+        <else>
+            <propety name="LOG_PATH" value="./target/logs/" />
+        </else>
+    </if>
+</included>

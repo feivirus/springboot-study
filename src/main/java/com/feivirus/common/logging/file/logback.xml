@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+    <if condition='isDefined("catalina.base")'>
+        <then>
+            <property name="LOG_PATH" value="${catalina.base}/logs/"></property>
+        </then>
+        <else>
+            <if condition='isDefined("user.home")'>
+                <then>
+                    <property name="LOG_PATH" value="${user.home}/logs"/>
+                </then>
+                <else>
+                    <property name="LOG_PATH" value="./target/logs/"></property>
+                </else>
+            </if>
+        </else>
+    </if>
+    <include resource="com/feivirus/common/logging/base/config.xml" />
+    <include resource="com/feivirus/common/logging/base/appender.xml" />
+</included>

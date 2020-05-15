@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+    <if condition='isDefined("LOG_PATTERN")'>
+        <then></then>
+        <else>
+            <property name="LOG_PATTERN"
+            value="%d{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread] %class:%line - %X{unique_request_id} %msg%n" />
+        </else>
+    </if>
+</included>

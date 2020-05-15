@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+    <include resource="com/feivirus/common/logging/springboot/base/base.xml" />
+</included>
