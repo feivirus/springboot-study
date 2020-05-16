@@ -41,7 +41,7 @@
         <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer ;true，把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal -->
         <!-- 如果想生成为byte 等 可以直接把下面的代码注释掉 生成完了记得还原
         <javaTypeResolver type="com.ideacome.config.IdeacomeJavaTypeResolver">
-            <property name="forceBigDecimals" value="false"/>
+            <property name="forceBigDecimals" getValue="false"/>
         </javaTypeResolver>-->
         <!-- 生成model模型，对应的包路径，以及文件存放路径(targetProject)，targetProject可以指定具体的路径,如./src/main/java，
                      也可以使用“MAVEN”来自动生成，这样生成的代码会在target/generatord-source目录下  这里千万别改-->
